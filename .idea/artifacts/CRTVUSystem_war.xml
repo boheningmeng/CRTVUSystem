@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CRTVUSystem:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="CRTVUSystem.war">
+      <element id="artifact" artifact-name="CRTVUSystem:war exploded" />
+    </root>
+  </artifact>
+</component>
