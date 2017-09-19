@@ -1,12 +1,14 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="CRTVUSystem:war exploded">
-    <output-path>$PROJECT_DIR$/target/CRTVUSystem</output-path>
+    <output-path>$PROJECT_DIR$/target/bssys</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="CRTVUSystem" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: junit:junit:4.9" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.3.RELEASE" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.3.3.RELEASE" />
@@ -81,7 +83,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/CRTVUSystem/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/bssys/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="CRTVUSystem/web/Web" />
     </root>
