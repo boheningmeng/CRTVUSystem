@@ -2,6 +2,7 @@ package cn.lh.security;
 
 import cn.lh.pojo.User;
 import cn.lh.service.RoleService;
+import cn.lh.service.UserInfoService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -17,7 +18,7 @@ import java.util.Set;
  */
  public class DefineRealm extends AuthorizingRealm {
      @Autowired
-     cn.lh.service.userService userService;
+     UserInfoService userService;
      @Autowired
     RoleService roleService;
 
