@@ -1,6 +1,7 @@
 package cn.lh.controller;
 
 import cn.lh.pojo.User;
+import cn.lh.service.UserInfoService;
 import cn.lh.util.ContantKey;
 import cn.lh.vo.Vouser;
 import org.apache.shiro.SecurityUtils;
@@ -22,7 +23,7 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     @Autowired
-    cn.lh.service.userService userService;
+    UserInfoService userService;
 
 
     @RequestMapping("/login")
