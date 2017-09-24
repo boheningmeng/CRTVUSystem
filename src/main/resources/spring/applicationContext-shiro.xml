@@ -101,7 +101,7 @@
     <!-- 11Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/login"/>
+        <property name="loginUrl" value="/login.jsp"/>
         <property name="successUrl" value="/"/>
         <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
         <!--<property name="filters">-->
@@ -110,6 +110,7 @@
             <!--</util:map>-->
         <!--</property>-->
         <!--Shiro过滤链的定义-->
+       <!-- anon:例子/admins/**=anon 没有参数，表示可以匿名使用。-->
         <property name="filterChainDefinitions">
             <value>
                 /ui/** = anon

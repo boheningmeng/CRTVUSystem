@@ -3,7 +3,7 @@
 <mapper namespace="cn.lh.mapper.UserMapper">
   <resultMap id="BaseResultMap" type="cn.lh.pojo.User">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -110,7 +110,7 @@
       sex, password, major, 
       phone, email, roleId, 
       rolename, kind)
-    values (#{id,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
       #{sex,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{major,jdbcType=INTEGER}, 
       #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{roleid,jdbcType=INTEGER}, 
       #{rolename,jdbcType=VARCHAR}, #{kind,jdbcType=INTEGER})
@@ -157,7 +157,7 @@
         #{id,jdbcType=INTEGER},
       </if>
       <if test="number != null">
-        #{number,jdbcType=INTEGER},
+        #{number,jdbcType=VARCHAR},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
@@ -201,7 +201,7 @@
         id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.number != null">
-        number = #{record.number,jdbcType=INTEGER},
+        number = #{record.number,jdbcType=VARCHAR},
       </if>
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
@@ -238,7 +238,7 @@
   <update id="updateByExample" parameterType="map">
     update user
     set id = #{record.id,jdbcType=INTEGER},
-      number = #{record.number,jdbcType=INTEGER},
+      number = #{record.number,jdbcType=VARCHAR},
       username = #{record.username,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
@@ -256,7 +256,7 @@
     update user
     <set>
       <if test="number != null">
-        number = #{number,jdbcType=INTEGER},
+        number = #{number,jdbcType=VARCHAR},
       </if>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
@@ -290,7 +290,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.lh.pojo.User">
     update user
-    set number = #{number,jdbcType=INTEGER},
+    set number = #{number,jdbcType=VARCHAR},
       username = #{username,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

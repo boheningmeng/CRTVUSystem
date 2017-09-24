@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页面</title>
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="/ui/js/jquery-3.1.1.min.js"></script>
+    <script src="/ui/js/jquery-ui.min.js"></script>
+    <script src="/ui/assets/crtvus.js"></script>
+    <link rel="stylesheet" type="text/css" href="/ui/js/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="/ui/css/login.css">
 </head>
 <body>
 <div class="main">
@@ -35,17 +36,17 @@
     </div>
     <div class="middle">
         <div class="m_main m1">
-            <form class="form1">
+            <form class="form1" id="fm" method="post" action="/user/login" >
                 <div class="title">欢迎登录</div>
-                <input type="text" class="user_message">
+                <input type="text" class="user_message" name="number" >
                 <label class="label l4">用户名不能为空</label>
                 <div class="icon user_icon"></div>
-                <input type="password" class="user_message">
+                <input type="password" class="user_message" name="password">
                 <label class="label l5">密码不能为空</label>
                 <div class="icon pass_icon"></div>
                 <div class="m_font f1">忘记密码？</div>
                 <div class="m_font f2">没有账号？点击注册</div>
-                <input type="submit" disabled="disabled" value="登&nbsp&nbsp录" class="order submit">
+                <input type="submit" <%-- onclick="login()"--%> value="登&nbsp&nbsp录" class="order submit">
                 <input type="reset" class="order zhuce" value="重&nbsp置">
             </form>
         </div>

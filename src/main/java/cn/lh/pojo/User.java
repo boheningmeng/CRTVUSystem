@@ -3,7 +3,7 @@ package cn.lh.pojo;
 public class User {
     private Integer id;
 
-    private Integer number;
+    private String number;
 
     private String username;
 
@@ -31,12 +31,12 @@ public class User {
         this.id = id;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
-        this.number = number;
+    public void setNumber(String number) {
+        this.number = number == null ? null : number.trim();
     }
 
     public String getUsername() {

@@ -29,7 +29,7 @@
     <!--配置sqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="cn.bssys.po;cn.bssys.vo"/>
+        <property name="typeAliasesPackage" value="cn.lh.pojo;cn.lh.vo"/>
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
         <property name="plugins">
             <array>
@@ -53,6 +53,6 @@
     <!--自动扫描mapper创建代理对象并注册到spring容器-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="cn.bssys.mapper"/>
+        <property name="basePackage" value="cn.lh.mapper"/>
     </bean>
 </beans>

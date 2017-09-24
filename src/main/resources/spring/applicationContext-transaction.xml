@@ -22,6 +22,7 @@
             <tx:method name="update*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
+    <tx:annotation-driven />
 
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.lh.service.impl..*.*(..))"/>

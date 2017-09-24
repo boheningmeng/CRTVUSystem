@@ -1,7 +1,10 @@
 package cn.lh.service;
 
+import cn.lh.pojo.User;
+
 /**
- * Created by LENOVO on 2017/9/19.
+ * Created by LENOVO on 2017/9/20.
  */
-public class userService {
+public interface userService {
+    public User getUserByNumber(String userNumber);
 }

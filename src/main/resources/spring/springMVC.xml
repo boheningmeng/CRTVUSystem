@@ -15,11 +15,9 @@
     <aop:config proxy-target-class="true"></aop:config>
 
     <!--静态资源文件，不会被springmvc拦截-->
-    <mvc:resources mapping="/ui/**" location="/assets/"/>
-    <mvc:resources mapping="/ui/**" location="/css/"/>
-    <mvc:resources mapping="/ui/**" location="/images/"/>
-    <mvc:resources mapping="/ui/**" location="/js/"/>
+    <mvc:resources mapping="/ui/**" location="/ui/"/>
 
+    <context:annotation-config/>
     <!--mvc注解驱动，替代adapter和HandlerMapping-->
     <!-- 防止@ResponseBody中文乱码 -->
     <mvc:annotation-driven>
@@ -29,20 +27,25 @@
             <!--</bean>-->
         <!--</mvc:message-converters>-->
     </mvc:annotation-driven>
+    <mvc:default-servlet-handler />
 
-    <!--配置渲染器-->
+   <!-- &lt;!&ndash;配置渲染器&ndash;&gt;
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-    <!--结果视图的前缀-->
+    &lt;!&ndash;结果视图的前缀&ndash;&gt;
     <property name="prefix" value="/WEB-INF/jsp/"/>
-    <!--结果视图的后缀-->
+    &lt;!&ndash;结果视图的后缀&ndash;&gt;
     <property name="suffix" value=".jsp"/>
-    <!--这样就会自动去找 /web-inf/jsp/hello.jsp 去了-->
-    </bean>
+    &lt;!&ndash;这样就会自动去找 /web-inf/jsp/hello.jsp 去了&ndash;&gt;
+    </bean>-->
 
-    <!--注解扫描器，扫描controller包-->
+    <!--&lt;!&ndash;注解扫描器，扫描controller包&ndash;&gt;
     <context:component-scan base-package="cn.lh.controller"/>
-
+-->
+    <context:component-scan base-package="cn.lh.controller">
+    <context:include-filter type="annotation"
+                            expression="org.springframework.stereotype.Controller"/>
+</context:component-scan>
     <!--文件上传配置-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"></property>
