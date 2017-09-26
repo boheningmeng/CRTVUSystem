@@ -29,7 +29,7 @@ import java.util.Set;
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
 
         User user = userService.getUserByNumber(username);
-        Set<String> roleSet = new HashSet<String>();
+        Set<String> roleSet = new HashSet<>();
         roleSet.add(String.valueOf(user.getRoleid()));
 
         authorizationInfo.setRoles(roleSet);

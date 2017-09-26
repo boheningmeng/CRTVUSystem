@@ -3,6 +3,7 @@ package cn.lh.service.impl;
 import cn.lh.mapper.UserMapper;
 import cn.lh.pojo.User;
 import cn.lh.pojo.UserExample;
+import cn.lh.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

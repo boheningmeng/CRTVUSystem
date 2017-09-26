@@ -20,6 +20,11 @@ public class Vouser extends User {
     public String getVoMajor() {
         return voMajor;
     }
+
+    public void setVoMajor(String voMajor) {
+        this.voMajor = voMajor;
+    }
+
     public Vouser(User user){
         this.setId(user.getId());
         this.setNumber(user.getNumber());

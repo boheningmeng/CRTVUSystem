@@ -110,4 +110,21 @@ public class User {
     public void setKind(Integer kind) {
         this.kind = kind;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", username='" + username + '\'' +
+                ", sex='" + sex + '\'' +
+                ", password='" + password + '\'' +
+                ", major=" + major +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", roleid=" + roleid +
+                ", rolename='" + rolename + '\'' +
+                ", kind=" + kind +
+                '}';
+    }
 }

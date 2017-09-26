@@ -1,4 +1,4 @@
-<%@page contentType="text/html; ISO-8859-1" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,22 +6,21 @@
     <title>登录页面</title>
     <script src="/ui/js/jquery-3.1.1.min.js"></script>
     <script src="/ui/js/jquery-ui.min.js"></script>
-    <script src="/ui/assets/crtvus.js"></script>
     <link rel="stylesheet" type="text/css" href="/ui/js/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="/ui/css/login.css">
 </head>
 <body>
 <div class="main">
     <div class="nav">
-        <div class="font t_c">S</div>
-        <div class="font t_r">D</div>
-        <div class="font t_e">U</div>
-        <div class="font t_a">T</div>
-        <div class="font t_t">C</div>
-        <div class="font t_d">R</div>
-        <div class="font t_m">T</div>
+        <div class="font t_c">C</div>
+        <div class="font t_r">R</div>
+        <div class="font t_e">E</div>
+        <div class="font t_a">A</div>
+        <div class="font t_t">T</div>
+        <div class="font t_d">D</div>
+        <div class="font t_m">M</div>
         <div class="nav_left">
-            <a href="index.html">教务管理系统</a>
+            <a href="index.html">Create Dream</a>
         </div>
         <div class="nav_right">
             <ul>
@@ -36,9 +35,9 @@
     </div>
     <div class="middle">
         <div class="m_main m1">
-            <form class="form1" id="fm" method="post" action="/user/login" >
-                <div class="title">欢迎登录</div>
-                <input type="text" class="user_message" name="number" >
+            <form class="form1" action="/user/login">
+                <div class="title">欢迎登录教务管理系统</div>
+                <input type="text" class="user_message" name="number">
                 <label class="label l4">用户名不能为空</label>
                 <div class="icon user_icon"></div>
                 <input type="password" class="user_message" name="password">
@@ -46,13 +45,11 @@
                 <div class="icon pass_icon"></div>
                 <div class="m_font f1">忘记密码？</div>
                 <div class="m_font f2">没有账号？点击注册</div>
-                <input type="submit" <%-- onclick="login()"--%> value="登&nbsp&nbsp录" class="order submit">
+                <input type="submit" disabled="disabled" value="登&nbsp&nbsp录" class="order submit">
                 <input type="reset" class="order zhuce" value="重&nbsp置">
-            </form>
         </div>
-
         <div class="m_main m2">
-            <div class="title">欢迎注册</div>
+            <div class="title">欢迎注册CREATE DREAM</div>
             <input type="text" class="user_message user1">
             <label class="label l1">5-16位数字或字母</label>
             <div class="icon user_icon"></div>
@@ -68,8 +65,8 @@
         </div>
     </div>
     <div class="footer">
-        CREATE liulihui</br>
-
+        CREATE DREAM@2016湘</br>
+        © 2017 Pactera. All rights reserved. Liaoning ICP 11007858-3. Jing Gongwang Anbei 11010802016198
     </div>
 </div>
 </body>
