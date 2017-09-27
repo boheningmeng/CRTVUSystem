@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 万洪基
-  Date: 2016/12/26
-  Time: 10:55
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
@@ -17,8 +11,8 @@
 <div class="easyui-accordion" style="width:auto;border: 0px;">
     <ul id="menu" class="easyui-tree" style="margin-top: 10px;margin-left: 5px;">
         <li>
-            <span>课题相关操作</span>
-            <ul>
+            <span>个人相关操作</span>
+           <%-- <ul>
                 <li data-options="attributes:{'url':'tp_1_manage'}">课题管理</li>
                 <li>
                     <span>课题相关查询</span>
@@ -34,9 +28,57 @@
                         <li data-options="attributes:{'url':'tp_3_answerPT'}">答疑时间和地点设置</li>
                     </ul>
                 </li>
+            </ul>--%>
+            <ul>
+                <li>个人信息查看</li>
+                <li>个人密码修改</li>
+                <shiro:hasRole name="2">
+                <li>个人课表</li>
+                </shiro:hasRole>
             </ul>
         </li>
+        <shiro:hasPermission name="score:*">
         <li>
+            <span>成绩管理</span>
+            <ul>
+                <li>班级成绩导入</li>
+                <li>班级成绩查看</li>
+            </ul>
+        </li>
+        </shiro:hasPermission>
+        <shiro:hasRole name="2">
+        <li>
+            <span>选课管理</span>
+            <ul>
+                <li>课程添加</li>
+                <li>选课信息查看</li>
+            </ul>
+        </li>
+        </shiro:hasRole>
+        <shiro:hasRole name="manage:*">
+        <li>
+            <span>高级管理</span>
+            <ul>
+                <li>教师管理</li>
+                <li>学生管理</li>
+                <li>课程管理</li>
+                <li>成绩管理</li>
+                <li>通知管理</li>
+                <li>选课管理</li>
+            </ul>
+        </li>
+        </shiro:hasRole>
+        <shiro:hasRole  name="1">
+        <li>
+            <span>系统管理</span>
+            <ul>
+                <li>字典管理</li>
+                <li>学生信息导入</li>
+                <li>老师信息导入</li>
+                <li>上传文件</li>
+            </ul>
+        </li></shiro:hasRole>
+        <%--<li>
             <span>个人相关操作</span>
             <ul>
                 <li>
@@ -105,7 +147,7 @@
                     </shiro:hasPermission>
                 </ul>
             </li>
-        </shiro:hasPermission>
+        </shiro:hasPermission>--%>
     </ul>
 </div>
 

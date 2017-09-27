@@ -59,7 +59,7 @@
                         <thead>
                         <tr>
                             <th field="title" width="50">标题</th>
-                            <th field="date" width="50">发布时间</th>
+                            <th field="time" width="50">发布时间</th>
                             <th field="publisher" width="50">发布人</th>
                             <th field="voFile" width="25">其他</th>
                         </tr>
