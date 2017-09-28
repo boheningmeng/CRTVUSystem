@@ -248,7 +248,7 @@ function readNotice() {
     if (row){
         $("#read_noticeDialog").dialog("open").dialog("setTitle",row.title);
         $("#notice_content").html(row.content);
-        $("#notice_footer").html("发布人："+row.publisher+"  发布日期："+row.date);
+        $("#notice_footer").html("发布人："+row.publisher+"  发布日期："+row.time);
     }
 }
 function downloadFile(model1,model2) {
