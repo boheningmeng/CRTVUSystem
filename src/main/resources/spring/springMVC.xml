@@ -29,15 +29,15 @@
     </mvc:annotation-driven>
     <mvc:default-servlet-handler />
 
-   <!-- &lt;!&ndash;配置渲染器&ndash;&gt;
+    <!--配置渲染器-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-    &lt;!&ndash;结果视图的前缀&ndash;&gt;
+    <!--结果视图的前缀-->
     <property name="prefix" value="/WEB-INF/jsp/"/>
-    &lt;!&ndash;结果视图的后缀&ndash;&gt;
+    <!--结果视图的后缀-->
     <property name="suffix" value=".jsp"/>
-    &lt;!&ndash;这样就会自动去找 /web-inf/jsp/hello.jsp 去了&ndash;&gt;
-    </bean>-->
+    <!--这样就会自动去找 /web-inf/jsp/hello.jsp 去了-->
+    </bean>
 
     <!--&lt;!&ndash;注解扫描器，扫描controller包&ndash;&gt;
     <context:component-scan base-package="cn.lh.controller"/>

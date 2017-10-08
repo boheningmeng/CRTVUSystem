@@ -11,7 +11,7 @@
     </span>
     <c:if test="${globleUser != null}">
         <span style="color: #000000;display:block; width: 20px; float:right; text-align:right;font-family: 微软雅黑;font-size: 16px;">
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;-
         </span>
         <span style="color: #000000;display:block; width: 300px; float:right; text-align:right;font-family: 微软雅黑;font-size: 16px;">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前${globleUser.rolename}：&nbsp;&nbsp;&nbsp;&nbsp;${globleUser.username}&nbsp;&nbsp;&nbsp;&nbsp;

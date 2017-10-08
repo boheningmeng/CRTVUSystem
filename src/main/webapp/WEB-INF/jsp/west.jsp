@@ -30,7 +30,7 @@
                 </li>
             </ul>--%>
             <ul>
-                <li>个人信息查看</li>
+                <li data-options="attributes:{'url':'personInfo'}">个人信息查看</li>
                 <li>个人密码修改</li>
                 <shiro:hasRole name="2">
                 <li>个人课表</li>
@@ -152,6 +152,7 @@
 </div>
 
 <script type="text/javascript">
+   /* $(function(){ }  这是jquery里的,是当文档载入完毕就执行,的意思.*/
     $(function(){
         $('#menu').tree({
             onClick: function(node){
