@@ -1,31 +1,3 @@
-function login() {
-
-        $.ajax({
-            type: 'post',
-            url: "/user/login",
-           /* contentType: 'application/x-www-form-urlencoded', //必须有*/
-            contentType:'application/json',
-            /*contentType : 'application/json;charset=utf-8',*/
-            async: true,
-            data: $("#fm").serialize(),
-           /* data : '{"number":"12344","password":"000000"}',*/
-          /* data:"number="+$("#number1").val()+"&password="+$("#password1").val(),*/
-            success: function (res) {
-               window.location.href = res;
-            }
-            /*error: function (res) {
-
-            }*/
-
-        });
-   /* $.get("/user/login", null,function (res) {
-        window.location.href=res;
-
-    })
-*/
-
-}
-
 
 function endEditing(){
     if (editIndex == undefined){return true}
@@ -78,4 +50,21 @@ function getChanges(){
     var rows = $('#dg').datagrid('getChanges');
     alert(rows.length+' rows are changed!');
 }
+
+function logout() {
+    $.get("/user/logout", null, function (res){
+        window.location.href = "/login";
+    })
+}
+
+/*
+function login(){
+    $("#fm").form("submit",{
+        url:"/user/login",
+        success:function(res){
+            window.location.href = res;
+        }
+    })
+}
+*/
 

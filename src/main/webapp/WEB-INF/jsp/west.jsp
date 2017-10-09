@@ -12,7 +12,7 @@
     <ul id="menu" class="easyui-tree" style="margin-top: 10px;margin-left: 5px;">
         <li>
             <span>个人相关操作</span>
-           <%-- <ul>
+            <%--<ul>
                 <li data-options="attributes:{'url':'tp_1_manage'}">课题管理</li>
                 <li>
                     <span>课题相关查询</span>
@@ -30,7 +30,9 @@
                 </li>
             </ul>--%>
             <ul>
-                <li data-options="attributes:{'url':'personInfo'}">个人信息查看</li>
+               <%-- <li data-options="attributes:{'url':'personInfo'}">个人信息查看</li>--%>
+                 <%-- /加上这个符号代表从 根工程访问--%>
+                <li data-options="attributes:{'url':'/personInfo'}">个人信息查看</li>
                 <li>个人密码修改</li>
                 <shiro:hasRole name="2">
                 <li>个人课表</li>
@@ -55,19 +57,19 @@
             </ul>
         </li>
         </shiro:hasRole>
-        <shiro:hasRole name="manage:*">
+        <shiro:hasPermission name="manage:*">
         <li>
             <span>高级管理</span>
             <ul>
                 <li>教师管理</li>
-                <li>学生管理</li>
+                <li data-options="attributes:{'url':'/stu_manage'}">学生管理</li>
                 <li>课程管理</li>
                 <li>成绩管理</li>
                 <li>通知管理</li>
                 <li>选课管理</li>
             </ul>
         </li>
-        </shiro:hasRole>
+        </shiro:hasPermission>
         <shiro:hasRole  name="1">
         <li>
             <span>系统管理</span>

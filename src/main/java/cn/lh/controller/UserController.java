@@ -41,11 +41,20 @@ public class UserController {
             System.out.println("login successful!!");
             User user1 = userService.getUserByNumber(user.getNumber());
             session.setAttribute(ContantKey.GLOBLE_USER_INFO,new Vouser(user1));
-            return "/WEB-INF/jsp/index.jsp";
+            return "/index";
         }catch (UnknownAccountException uae){
             System.out.println("用户名错误");
         }
-        return "/login.jsp";
+        return "/login";
+    }
+
+    @RequestMapping("/logout")
+    @ResponseBody
+    public void logout(){
+        System.out.println("logout started");
+        Subject currentUser = SecurityUtils.getSubject();
+        currentUser.logout();
+        return ;
     }
 
 }

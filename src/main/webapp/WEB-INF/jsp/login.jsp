@@ -35,7 +35,7 @@
     </div>
     <div class="middle">
         <div class="m_main m1">
-            <form class="form1" action="/user/login">
+            <form class="form1" action="/user/login" method="post">
                 <div class="title">欢迎登录教务管理系统</div>
                 <input type="text" class="user_message" name="number">
                 <label class="label l4">用户名不能为空</label>

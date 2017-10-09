@@ -15,10 +15,11 @@
     <link rel="stylesheet" type="text/css" href="/ui/themes/bootstrap/easyui.css">
     <link rel="stylesheet" type="text/css" href="/ui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/ui/demo/demo.css">
+    <link rel="stylesheet" type="text/css" href="/ui/bssys.css">
     <script type="text/javascript" src="/ui/jquery.min.js"></script>
     <script type="text/javascript" src="/ui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="/ui/bssys.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" src="/ui/crtvus.js"></script>
+   <%-- <script type="text/javascript">
         function addTab(title, url){
             if ($('#tt').tabs('exists', title)){
                 $('#tt').tabs('select', title);
@@ -31,7 +32,7 @@
                 });
             }
         }
-    </script>
+    </script>--%>
 </head>
 <body>
 <div class="easyui-layout" style="width:100%;height: 723px;">
