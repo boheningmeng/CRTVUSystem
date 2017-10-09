@@ -12,15 +12,15 @@
 <body>
 <div class="main">
     <div class="nav">
-        <div class="font t_c">C</div>
-        <div class="font t_r">R</div>
-        <div class="font t_e">E</div>
-        <div class="font t_a">A</div>
-        <div class="font t_t">T</div>
-        <div class="font t_d">D</div>
-        <div class="font t_m">M</div>
+        <div class="font t_c">S</div>
+        <div class="font t_r">D</div>
+        <div class="font t_e">U</div>
+        <div class="font t_a">T</div>
+        <div class="font t_t">C</div>
+        <div class="font t_d">R</div>
+        <div class="font t_m">T</div>
         <div class="nav_left">
-            <a href="index.html">Create Dream</a>
+            <a href="index.html">教务管理系统</a>
         </div>
         <div class="nav_right">
             <ul>

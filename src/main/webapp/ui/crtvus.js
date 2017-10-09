@@ -57,6 +57,11 @@ function logout() {
     })
 }
 
+function newStu(){
+    $("#fm").form("clear");
+    $("#stuDialog").dialog("open").dialog("setTitle","学生管理-新建");
+    url="/student/addition";
+}
 /*
 function login(){
     $("#fm").form("submit",{

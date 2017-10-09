@@ -4,7 +4,9 @@ import cn.lh.mapper.StudentMapper;
 import cn.lh.pojo.Page;
 import cn.lh.pojo.Student;
 import cn.lh.pojo.StudentExample;
+import cn.lh.service.ClazzService;
 import cn.lh.service.StudentService;
+import cn.lh.service.SystemDDLService;
 import cn.lh.vo.VoStudent;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -28,13 +30,19 @@ import java.util.List;
     @Autowired
     StudentMapper studentMapper;
 
-    public void setTotal(long total) {
-        this.total = total;
-    }
+    @Autowired
+    SystemDDLService systemDDLService;
+
+    @Autowired
+    ClazzService clazzService;
+
+//    public void setTotal(long total) {
+//        this.total = total;
+//    }
 
     @Override
     public long getTotal() {
-        return 0;
+        return total;
     }
 /*1、一次性添加多行注释的快捷键
 首先选中要注释区域，然后
@@ -58,16 +66,22 @@ ctrl+shift+/添加注释，则ctrl+shift+/取消注释*/
         this.total = pageInfo.getTotal();
 //        vo化
         List<VoStudent> voStudentList = new ArrayList<>();
+//        System.out.println(studentList);
         for(Student student:
                 studentList){
             VoStudent voStudent = new VoStudent();
+            voStudent.setSex(student.getSex());
             voStudent.setName(student.getName());
             voStudent.setNumber(student.getNumber());
             voStudent.setEmail(student.getEmail());
-            voStudent.setPhone(student.getPhone());
-
+            voStudent.setVoGrade(systemDDLService.getDDLNameByDDLCode("grade",student.getGrade()));
+            voStudent.setVoClazz(clazzService.getClazz(student.getClazzid()));
+            voStudent.setVoMajor(systemDDLService.getDDLNameByDDLCode("major",student.getMajor()));
+            voStudent.setVoIsChoose(systemDDLService.getIsChoose(student.getIschoose()));
+//           把voStudent加入到list中
+            voStudentList.add(voStudent);
         }
-        System.out.println(voStudentList);
+
         return voStudentList;
 
     }

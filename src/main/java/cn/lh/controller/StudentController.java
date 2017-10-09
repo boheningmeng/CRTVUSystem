@@ -17,18 +17,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping(value = "/student",produces = {"application/json;charset=UTF-8"})
+//@RequestMapping(value = "/student",produces={"application/json;charset=UTF-8"})
+@RequestMapping(value = "/student", produces = {"application/json;charset=UTF-8"})
 public class StudentController {
 
     @Autowired
     StudentService studentService;
 
-    @RequestMapping(value = "list")
+    @RequestMapping(value = "/list")
     @ResponseBody
-    public String getList(Page page){
+    public String getList(Page page)throws Exception{
+
+        System.out.println(page);
         DataGrid dateGrid =new DataGrid();
-        dateGrid.setTotal(studentService.getTotal());
+
         dateGrid.setRows(studentService.getList(page));
+        dateGrid.setTotal(studentService.getTotal());
         return JSON.toJSONString(dateGrid);
     }
 

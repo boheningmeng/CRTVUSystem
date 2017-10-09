@@ -13,9 +13,10 @@ import java.util.List;
  * Created by LENOVO on 2017/9/28.
  */
 @Service("systemddlService")
- public class SystemDDLServiceImpl implements SystemDDLService {
+  public class SystemDDLServiceImpl implements SystemDDLService {
     @Autowired
     SystemddlMapper systemddlMapper;
+
 
     @Override
     public String getDDLNameByDDLCode(String keyword, int ddlcode) {
@@ -28,6 +29,16 @@ import java.util.List;
             return systemddlList.get(0).getDdlname();
         }else{
             return null;
+        }
+
+    }
+
+    @Override
+    public String getIsChoose(int number) {
+        if(number == 1){
+            return "是";
+        }else{
+            return "否";
         }
 
     }

@@ -14,34 +14,10 @@
     <link rel="stylesheet" type="text/css" href="/ui/bssys.css">
     <script type="text/javascript" src="/ui/jquery.min.js"></script>
     <script type="text/javascript" src="/ui/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="/ui/crtvus.js"></script>
+    <script type="text/javascript" src="/ui/bssys.js"></script>
 </head>
 <body>
-<%--<div align="center">
-      <table id="dg" title="学生列表" class="easyui-datagrid" style="width:100%;height:auto"
-      fitColumns="true" singleSelect="true" pagination="true"
-      data-options="rownumbers:true,
-       url:'/student/manage',
-       method:'get',
-       pageSize:15,
-       pageList:[5,10,15,20,25]">
-          <thead>
-          <tr>
-              <th filed="number" width="50">学号</th>
-              <th filed="name" width="30">姓名</th>
-              <th filed="sex" width="26">性别</th>
-              <th filed="voGrade" width="50">年级</th>
-              <th filed="voClazz" width="50">班级</th>
-              <th filed="voMajor" width="50">专业</th>
-              <th filed="voEntime" width="50">入学时间</th>
-              <th filed="voIschoose" width="50">是否选课</th>
-              <th filed="email" width="50">电子邮件</th>
-              <th filed="phone" width="50">电话号码</th>
 
-          </tr>
-          </thead>
-      </table>
-</div>--%>
 <div align="center">
     <table id="dg" title="学生列表" class="easyui-datagrid" style="width: 100%;height:auto"
            toolbar="#toolbar"
@@ -57,7 +33,7 @@
             <th field="voClazz" width="50">班级</th>
             <th field="number" width="50">学号</th>
             <th field="name" width="50">姓名</th>
-            <th field="grade" width="50">年级</th>
+            <th field="voGrade" width="50">年级</th>
             <th field="sex" width="50">性别</th>
             <th field="voIsChoose" width="50">是否选课</th>
 
@@ -65,5 +41,84 @@
         </thead>
     </table>
 </div>
+<div id="toolbar">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newStu()">新建</a>
+</div>
+<div id="stuDialog" class="easyui-dialog" style="width: 500px;height: 550px;padding: 10px 20px"
+     closed="true" buttons="#stuForm-buttons">
+    <div class="ftitle">学生信息</div>
+    <form id="fm" method="post">
+        <div class="fitem">
+            <%--<label>学院&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
+            <input name="college"
+                   class="easyui-combobox"
+                   data-options="
+                           valueField:'ddlcode',
+                           textField:'ddlname',
+                           width:300,
+                           url:'${pageContext.request.contextPath}/systemddl/list/college'" />
+        </div><br/>
+        <div class="fitem">
+            <label>专业名称&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
+            <input name="major"
+                   class="easyui-combobox"
+                   data-options="
+                           valueField:'ddlcode',
+                           textField:'ddlname',
+                           width:300,
+                           url:'${pageContext.request.contextPath}/systemddl/list/major'" />--%>
+        </div><br/>
+        <div class="fitem">
+            <label>学号&nbsp;&nbsp;&nbsp;</label>
+            <input name="number" class="easyui-validatebox">
+        </div>
+        <br/>
+        <div class="fitem">
+            <label>姓名&nbsp;&nbsp;&nbsp;</label>
+            <input name="name" class="easyui-validatebox">
+        </div>
+        <br/>
+        <div class="fitem">
+            <label>年级&nbsp;&nbsp;&nbsp;</label>
+            <input name="grade" class="easyui-validatebox">
+        </div>
+        <br/>
+        <div class="fitem">
+            <label>学历&nbsp;&nbsp;&nbsp;</label>
+            <input name="degree" class="easyui-validatebox">
+        </div>
+       <%-- <br/>
+       &lt;%&ndash; <div class="fitem">
+            <label>班级&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
+            <input name="clazz"
+                   class="easyui-combobox"
+                   data-options="
+                           valueField:'ddlcode',
+                           textField:'ddlname',
+                           width:300,
+                           url:'${pageContext.request.contextPath}/systemddl/list/clazz'" />&ndash;%&gt;
+        </div><br/>--%>
+        <div class="fitem">
+            <label>邮箱&nbsp;&nbsp;&nbsp;</label>
+            <input name="email" class="easyui-validatebox">
+        </div>
+        <br/>
+        <div class="fitem">
+            <label>手机号&nbsp;&nbsp;&nbsp;</label>
+            <input name="phone" class="easyui-validatebox">
+        </div>
+        <br/>
+        <div class="fitem">
+            <label>特长&nbsp;&nbsp;&nbsp;</label>
+            <textarea name="strongpoint" class="textareaComment" placeholder="200字以内"></textarea>
+        </div>
+    </form>
+</div>
+<div id="stuForm-buttons">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveStu()">保存</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-cancel"
+       onclick="javascript:$('#stuDialog').dialog('close')">取消</a>
+</div>
+
 </body>
 </html>
