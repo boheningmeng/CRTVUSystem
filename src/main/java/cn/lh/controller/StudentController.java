@@ -2,6 +2,7 @@ package cn.lh.controller;
 
 import cn.lh.pojo.DataGrid;
 import cn.lh.pojo.Page;
+import cn.lh.pojo.Student;
 import cn.lh.service.StudentService;
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +27,29 @@ public class StudentController {
 
     @RequestMapping(value = "/list")
     @ResponseBody
-    public String getList(Page page)throws Exception{
+    public String getList(Page page) throws Exception {
 
         System.out.println(page);
-        DataGrid dateGrid =new DataGrid();
+        DataGrid dateGrid = new DataGrid();
 
         dateGrid.setRows(studentService.getList(page));
         dateGrid.setTotal(studentService.getTotal());
         return JSON.toJSONString(dateGrid);
     }
 
+    @RequestMapping(value = "/addition")
+    @ResponseBody
+    public String add(Student student)throws Exception {
+        student.setIschoose(0);
+        student.setPassword(student.getNumber());
+        System.out.println(student);
+        try {
+         studentService.addition(student);
+         return JSON.toJSONString("操作成功");
+        } catch(Exception e) {
+            return JSON.toJSONString("操作失败");
+
+        }
+
+    }
 }

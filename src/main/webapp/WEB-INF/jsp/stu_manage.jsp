@@ -44,19 +44,21 @@
 <div id="toolbar">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newStu()">新建</a>
 </div>
+
 <div id="stuDialog" class="easyui-dialog" style="width: 500px;height: 550px;padding: 10px 20px"
      closed="true" buttons="#stuForm-buttons">
     <div class="ftitle">学生信息</div>
     <form id="fm" method="post">
         <div class="fitem">
-            <%--<label>学院&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
-            <input name="college"
+            <label>年级&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
+            <input name="grade"
                    class="easyui-combobox"
+                   <%--textField和valueField看到的表示出来的值（界面上），和内里的值--%>
                    data-options="
                            valueField:'ddlcode',
                            textField:'ddlname',
                            width:300,
-                           url:'${pageContext.request.contextPath}/systemddl/list/college'" />
+                           url:'${pageContext.request.contextPath}/systemddl/list/grade'" />
         </div><br/>
         <div class="fitem">
             <label>专业名称&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
@@ -66,7 +68,27 @@
                            valueField:'ddlcode',
                            textField:'ddlname',
                            width:300,
-                           url:'${pageContext.request.contextPath}/systemddl/list/major'" />--%>
+                           url:'${pageContext.request.contextPath}/systemddl/list/major'" />
+        </div><br/>
+        <div class="fitem">
+            <label>入学时间&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
+            <input name="Entime"
+                   class="easyui-combobox"
+                   data-options="
+                           valueField:'ddlcode',
+                           textField:'ddlname',
+                           width:300,
+                           url:'${pageContext.request.contextPath}/systemddl/list/Entime'" />
+        </div><br/>
+        <div class="fitem">
+            <label>班级&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
+            <input name="clazzid"
+                   class="easyui-combobox"
+                   data-options="
+                           valueField:'id',
+                           textField:'name',
+                           width:300,
+                           url:'${pageContext.request.contextPath}/clazz/getList'" />
         </div><br/>
         <div class="fitem">
             <label>学号&nbsp;&nbsp;&nbsp;</label>
@@ -78,26 +100,16 @@
             <input name="name" class="easyui-validatebox">
         </div>
         <br/>
-        <div class="fitem">
+        <%--<div class="fitem">
             <label>年级&nbsp;&nbsp;&nbsp;</label>
             <input name="grade" class="easyui-validatebox">
-        </div>
+        </div>--%>
         <br/>
         <div class="fitem">
-            <label>学历&nbsp;&nbsp;&nbsp;</label>
-            <input name="degree" class="easyui-validatebox">
+            <label>性别&nbsp;&nbsp;&nbsp;</label>
+            <input name="sex" class="easyui-validatebox">
         </div>
-       <%-- <br/>
-       &lt;%&ndash; <div class="fitem">
-            <label>班级&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
-            <input name="clazz"
-                   class="easyui-combobox"
-                   data-options="
-                           valueField:'ddlcode',
-                           textField:'ddlname',
-                           width:300,
-                           url:'${pageContext.request.contextPath}/systemddl/list/clazz'" />&ndash;%&gt;
-        </div><br/>--%>
+
         <div class="fitem">
             <label>邮箱&nbsp;&nbsp;&nbsp;</label>
             <input name="email" class="easyui-validatebox">
@@ -108,10 +120,10 @@
             <input name="phone" class="easyui-validatebox">
         </div>
         <br/>
-        <div class="fitem">
-            <label>特长&nbsp;&nbsp;&nbsp;</label>
-            <textarea name="strongpoint" class="textareaComment" placeholder="200字以内"></textarea>
-        </div>
+        <%--<div class="fitem">--%>
+            <%--<label>特长&nbsp;&nbsp;&nbsp;</label>--%>
+            <%--<textarea name="strongpoint" class="textareaComment" placeholder="200字以内"></textarea>--%>
+        <%--</div>--%>
     </form>
 </div>
 <div id="stuForm-buttons">

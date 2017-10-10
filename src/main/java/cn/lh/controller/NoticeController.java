@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class NoticeController {
     @Autowired
     NoticeService noticeService;
+
     @Autowired
     NoticeMapper noticeMapper;
 

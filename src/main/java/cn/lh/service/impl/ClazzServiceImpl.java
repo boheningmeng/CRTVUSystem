@@ -1,10 +1,13 @@
 package cn.lh.service.impl;
 
 import cn.lh.mapper.ClazzMapper;
+import cn.lh.pojo.Clazz;
 import cn.lh.pojo.ClazzExample;
 import cn.lh.service.ClazzService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,5 +26,11 @@ import org.springframework.stereotype.Service;
 //        两个方法 selectByExample 和 selectbyPrimaryKey 用第二个
         String clazz = clazzMapper.selectByPrimaryKey(id).getName();
         return clazz;
+    }
+
+    @Override
+    public List<Clazz> getList() {
+        ClazzExample clazzExample = new ClazzExample();
+        return clazzMapper.selectByExample(clazzExample);
     }
 }

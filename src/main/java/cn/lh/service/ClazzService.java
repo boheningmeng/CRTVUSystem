@@ -1,5 +1,9 @@
 package cn.lh.service;
 
+import cn.lh.pojo.Clazz;
+
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: 刘莉慧
@@ -10,4 +14,6 @@ package cn.lh.service;
 public interface ClazzService {
 
     public String getClazz(int id);
+
+    public List<Clazz> getList();
 }

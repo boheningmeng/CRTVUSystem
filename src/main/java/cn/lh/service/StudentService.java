@@ -1,6 +1,7 @@
 package cn.lh.service;
 
 import cn.lh.pojo.Page;
+import cn.lh.pojo.Student;
 import cn.lh.vo.VoStudent;
 
 import java.util.List;
@@ -16,4 +17,6 @@ public interface StudentService {
     public long getTotal();
 
     public List<VoStudent> getList(Page page);
+
+    public void addition(Student student);
 }

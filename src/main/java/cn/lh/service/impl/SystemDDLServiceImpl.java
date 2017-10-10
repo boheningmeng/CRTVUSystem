@@ -7,6 +7,7 @@ import cn.lh.service.SystemDDLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,5 +42,16 @@ import java.util.List;
             return "否";
         }
 
+    }
+
+    @Override
+    public List<Systemddl> getListByKeyWorld(String keyWord) {
+
+       SystemddlExample systemddlExample = new SystemddlExample();
+       SystemddlExample.Criteria criteria = systemddlExample.createCriteria();
+       criteria.andKeywordEqualTo(keyWord);
+       List<Systemddl> systemddlList = systemddlMapper.selectByExample(systemddlExample);
+
+      return systemddlList;
     }
 }

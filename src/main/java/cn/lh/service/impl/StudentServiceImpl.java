@@ -85,4 +85,9 @@ ctrl+shift+/添加注释，则ctrl+shift+/取消注释*/
         return voStudentList;
 
     }
+
+    @Override
+    public void addition(Student student) {
+        studentMapper.insertSelective(student);
+    }
 }

@@ -120,4 +120,22 @@ public class Student {
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", password='" + password + '\'' +
+                ", number='" + number + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", grade=" + grade +
+                ", clazzid=" + clazzid +
+                ", major=" + major +
+                ", entime=" + entime +
+                ", ischoose=" + ischoose +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
