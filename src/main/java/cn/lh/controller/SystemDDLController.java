@@ -28,4 +28,10 @@ public class SystemDDLController {
     public String getList(@PathVariable String keyword){
         return JSON.toJSONString(systemDDLService.getListByKeyWorld(keyword));
     }
+
+    @RequestMapping("/keyword")
+    @ResponseBody
+    public String getKeyWorld(){
+        return JSON.toJSONString(systemDDLService.getKeywold());
+    }
 }

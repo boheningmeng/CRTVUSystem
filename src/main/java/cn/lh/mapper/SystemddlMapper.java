@@ -28,4 +28,6 @@ public interface SystemddlMapper {
     int updateByPrimaryKeySelective(Systemddl record);
 
     int updateByPrimaryKey(Systemddl record);
+//    自定义
+    List<Systemddl> getKeyword();
 }

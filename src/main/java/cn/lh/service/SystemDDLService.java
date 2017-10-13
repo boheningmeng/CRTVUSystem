@@ -14,4 +14,5 @@ public interface SystemDDLService {
     public String getIsChoose(int number);
 
     public List<Systemddl> getListByKeyWorld(String keyWord);
+    public List<Systemddl> getKeywold();
 }

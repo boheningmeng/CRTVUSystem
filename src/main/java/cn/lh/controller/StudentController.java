@@ -4,9 +4,11 @@ import cn.lh.pojo.DataGrid;
 import cn.lh.pojo.Page;
 import cn.lh.pojo.Student;
 import cn.lh.service.StudentService;
+import cn.lh.vo.VoStudent;
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -51,5 +53,30 @@ public class StudentController {
 
         }
 
+    }
+//    sid 为带的参数
+    @RequestMapping(value = "/updates/{number}")
+    @ResponseBody
+    public String update(@PathVariable  String number,Student student) throws Exception{
+        try{
+            studentService.update(student);
+            return JSON.toJSONString("操作成功");
+        }catch(Exception e){
+            return JSON.toJSONString("操作失败");
+        }
+    }
+
+    @RequestMapping(value = "/deletion/{number}")
+    @ResponseBody
+    public String delete(@PathVariable String number, VoStudent voStudent){
+        voStudent.setNumber(number);
+        System.out.println(voStudent);
+        System.out.println(number);
+        try{
+            studentService.delete(number);
+            return JSON.toJSONString("操作成功");
+        }catch (Exception e){
+            return JSON.toJSONString("操作失败");
+        }
     }
 }

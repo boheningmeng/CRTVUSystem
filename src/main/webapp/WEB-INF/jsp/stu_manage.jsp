@@ -1,3 +1,4 @@
+<%@ taglib prefix="valueField" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: LENOVO
@@ -43,6 +44,8 @@
 </div>
 <div id="toolbar">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newStu()">新建</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editStu()">编辑</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyStu()">删除</a>
 </div>
 
 <div id="stuDialog" class="easyui-dialog" style="width: 500px;height: 550px;padding: 10px 20px"
@@ -65,7 +68,7 @@
             <input name="major"
                    class="easyui-combobox"
                    data-options="
-                           valueField:'ddlcode',
+                         valueField:'ddlcode',
                            textField:'ddlname',
                            width:300,
                            url:'${pageContext.request.contextPath}/systemddl/list/major'" />
@@ -131,6 +134,10 @@
     <a href="#" class="easyui-linkbutton" iconCls="icon-cancel"
        onclick="javascript:$('#stuDialog').dialog('close')">取消</a>
 </div>
-
+<div>
+    <form id="dfm" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+    </form>
+</div>
 </body>
 </html>

@@ -33,7 +33,7 @@
                <%-- <li data-options="attributes:{'url':'personInfo'}">个人信息查看</li>--%>
                  <%-- /加上这个符号代表从 根工程访问--%>
                 <li data-options="attributes:{'url':'/personInfo'}">个人信息查看</li>
-                <li>个人密码修改</li>
+                <li data-options="attributes:{'url':'/per_password_change'}">个人密码修改</li>
                 <shiro:hasRole name="2">
                 <li>个人课表</li>
                 </shiro:hasRole>
@@ -74,7 +74,7 @@
         <li>
             <span>系统管理</span>
             <ul>
-                <li>字典管理</li>
+                <li data-options="attributes:{'url':'/sys_directory'}">字典管理</li>
                 <li>学生信息导入</li>
                 <li>老师信息导入</li>
                 <li>上传文件</li>

@@ -47,7 +47,9 @@
                 <div class="m_font f2">没有账号？点击注册</div>
                 <input type="submit" disabled="disabled" value="登&nbsp&nbsp录" class="order submit">
                 <input type="reset" class="order zhuce" value="重&nbsp置">
+            </form>
         </div>
+
         <div class="m_main m2">
             <div class="title">欢迎注册CREATE DREAM</div>
             <input type="text" class="user_message user1">

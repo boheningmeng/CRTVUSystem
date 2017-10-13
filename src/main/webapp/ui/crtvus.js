@@ -72,4 +72,32 @@ function login(){
     })
 }
 */
+function editStu(){
+    var row = $("#dg").datagrid("getSelected");
+    if(row){
+        $("#stuDialog").dialog("open").dialog("setTitle","学生管理--编辑");
+        $("fm").form("clear");
+        $("fm").form("load",row);
+        url = "/student/update"+row.sid;
+    }
+}
 
+function destoryStu(){
+    var row = $("#dg").dialog("getSelected");
+    if(row){
+        $.message.conirm("confirm","确定要删除这条记录吗",function(r){
+            if(r){
+
+            }
+        })
+    }
+}
+
+function readNotice(){
+    var row = $("#dg").datagrid("getSelected");
+    if(row){
+        $("#read_noticeDialog").dialog("open").dialog("setTitile",row.title);
+        $("#notice_content").html(row.content);
+        $("#notice_footer").html("发布人: "+row.publisher+"  发布日期: "+row.date);
+    }
+}

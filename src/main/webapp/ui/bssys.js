@@ -334,16 +334,18 @@ function editStu(){
         $("#stuDialog").dialog("open").dialog("setTitle","学生管理--编辑");
         $("#fm").form("clear");
         $("#fm").form("load",row);
-        url = "/student/updates/"+row.sid;
+
+         url = "/student/updates/"+row.number;
     }
 }
 function destroyStu(){
     var row = $("#dg").datagrid("getSelected");
+    var number = row.number;
     if (row){
         $.messager.confirm("Confirm","确定要删除这条记录吗",function (r) {
             if (r){
                 $("#dfm").form("submit",{
-                    url:"/student/deletion/"+row.sid,
+                    url:"/student/deletion/"+number,
                     success: function (res) {
                         alert(res);
                         $("#stuDialog").dialog("close");

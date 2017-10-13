@@ -54,4 +54,13 @@ import java.util.List;
 
       return systemddlList;
     }
+
+    @Override
+    public List<Systemddl> getKeywold() {
+      /*  SystemddlExample systemddlExample = new SystemddlExample();
+        return systemddlMapper.selectByExample();*/
+//      错了
+        return systemddlMapper.getKeyword();
+
+    }
 }

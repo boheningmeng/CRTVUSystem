@@ -44,6 +44,8 @@ public class UserController {
             return "/index";
         }catch (UnknownAccountException uae){
             System.out.println("用户名错误");
+        }catch(Exception e){
+            e.printStackTrace();
         }
         return "/login";
     }

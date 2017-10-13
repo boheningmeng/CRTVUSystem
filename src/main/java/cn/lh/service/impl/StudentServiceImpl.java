@@ -4,6 +4,7 @@ import cn.lh.mapper.StudentMapper;
 import cn.lh.pojo.Page;
 import cn.lh.pojo.Student;
 import cn.lh.pojo.StudentExample;
+import cn.lh.pojo.Systemddl;
 import cn.lh.service.ClazzService;
 import cn.lh.service.StudentService;
 import cn.lh.service.SystemDDLService;
@@ -24,7 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service("studentServcie")
-  public class StudentServiceImpl implements StudentService {
+   public class StudentServiceImpl implements StudentService {
     public long total;
 
     @Autowired
@@ -90,4 +91,24 @@ ctrl+shift+/添加注释，则ctrl+shift+/取消注释*/
     public void addition(Student student) {
         studentMapper.insertSelective(student);
     }
+
+    @Override
+    public void update(Student student) {
+        StudentExample studentExample = new StudentExample();
+        StudentExample.Criteria criteria = studentExample.createCriteria();
+        criteria.andNumberEqualTo(student.getNumber());
+
+        System.out.println(student);
+        studentMapper.updateByExampleSelective(student,studentExample);
+    }
+
+    @Override
+    public void delete(String id) {
+        StudentExample studentExample = new StudentExample();
+        StudentExample.Criteria criteria = studentExample.createCriteria();
+        criteria.andNumberEqualTo(id);
+        studentMapper.deleteByExample(studentExample);
+    }
+
+
 }

@@ -10,13 +10,13 @@ public class UIController {
 
      @RequestMapping("/login")
      public String showLogin(){
-         return "login";
+         return "/login";
      }
-   /* @RequestMapping("/")
-    public String showIndex(){
+
+     @RequestMapping("/")
+     public String showIndex(){
         return "index";
-    }
-*/
+     }
     @RequestMapping("/{page}")
     public String showPage(@PathVariable String page){
         return page;

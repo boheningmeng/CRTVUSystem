@@ -2,6 +2,7 @@ package cn.lh.service;
 
 import cn.lh.pojo.Page;
 import cn.lh.pojo.Student;
+import cn.lh.pojo.Systemddl;
 import cn.lh.vo.VoStudent;
 
 import java.util.List;
@@ -19,4 +20,10 @@ public interface StudentService {
     public List<VoStudent> getList(Page page);
 
     public void addition(Student student);
+
+    public void update(Student student);
+
+    public void delete(String id);
+
+
 }

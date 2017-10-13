@@ -193,4 +193,10 @@
       ddlname = #{ddlname,jdbcType=VARCHAR}
     where uuid = #{uuid,jdbcType=VARCHAR}
   </update>
+  <!--自定义-->
+  <select id="getKeyword" resultType="cn.lh.pojo.Systemddl">
+    select keyword
+    from systemddl
+    group by keyword
+  </select>
 </mapper>
