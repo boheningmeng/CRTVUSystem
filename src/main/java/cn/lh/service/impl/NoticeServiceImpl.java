@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by LENOVO on 2017/9/27.
@@ -50,9 +52,40 @@ import java.util.List;
             voNotice.setTime(notice.getTime());
             voNotice.setTitle(notice.getTitle());
             voNotice.setUuid(notice.getUuid());
+//            如果有文件的话
+            if(notice.getAnnex()!=null && !notice.getAnnex().trim().equals("")){
+                voNotice.setVoFile(setVoFile(notice.getUuid()));
+            }
             voNoticeList.add(voNotice);
         }
         return voNoticeList;
 
+    }
+    private String setVoFile(String uuid){
+        return  "<a href = \"#\" onclick=\"downloadFile('notice','"+uuid+"')\">有附件</a>";
+    }
+
+    @Override
+    public void add(VoNotice notice) {
+        notice.setUuid(UUID.randomUUID().toString());
+        notice.setTime(new Date(System.currentTimeMillis()));
+        notice.setPublisher("刘莉慧");
+        noticeMapper.insertSelective(notice);
+    }
+
+    @Override
+    public String getAnnex(String uuid) {
+        return noticeMapper.selectByPrimaryKey(uuid).getAnnex();
+    }
+
+    @Override
+    public void update(Notice notice) {
+
+        noticeMapper.updateByPrimaryKeySelective(notice);
+    }
+
+    @Override
+    public void delete(String uuid) {
+        noticeMapper.deleteByPrimaryKey(uuid);
     }
 }

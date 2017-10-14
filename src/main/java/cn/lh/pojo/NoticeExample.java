@@ -531,6 +531,76 @@ public class NoticeExample {
             addCriterionForJDBCDate("time not between", value1, value2, "time");
             return (Criteria) this;
         }
+
+        public Criteria andAnnexIsNull() {
+            addCriterion("annex is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexIsNotNull() {
+            addCriterion("annex is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexEqualTo(String value) {
+            addCriterion("annex =", value, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexNotEqualTo(String value) {
+            addCriterion("annex <>", value, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexGreaterThan(String value) {
+            addCriterion("annex >", value, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexGreaterThanOrEqualTo(String value) {
+            addCriterion("annex >=", value, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexLessThan(String value) {
+            addCriterion("annex <", value, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexLessThanOrEqualTo(String value) {
+            addCriterion("annex <=", value, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexLike(String value) {
+            addCriterion("annex like", value, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexNotLike(String value) {
+            addCriterion("annex not like", value, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexIn(List<String> values) {
+            addCriterion("annex in", values, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexNotIn(List<String> values) {
+            addCriterion("annex not in", values, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexBetween(String value1, String value2) {
+            addCriterion("annex between", value1, value2, "annex");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnnexNotBetween(String value1, String value2) {
+            addCriterion("annex not between", value1, value2, "annex");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

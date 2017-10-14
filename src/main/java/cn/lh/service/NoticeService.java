@@ -11,4 +11,12 @@ import java.util.List;
  */
 public interface NoticeService {
     public List<VoNotice> list(Page page);
+
+    public void add(VoNotice notice);
+
+    public String getAnnex(String uuid);
+
+    public void update(Notice notice);
+
+    public void delete(String uuid);
 }

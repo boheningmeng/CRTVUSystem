@@ -101,3 +101,8 @@ function readNotice(){
         $("#notice_footer").html("发布人: "+row.publisher+"  发布日期: "+row.date);
     }
 }
+function newNotice(){
+    $("#fm").form("clear");
+    $("#noticeDialog").dialog("open").dialog("setTitle","通知管理——新建");
+    url = "/notice/addition";
+}

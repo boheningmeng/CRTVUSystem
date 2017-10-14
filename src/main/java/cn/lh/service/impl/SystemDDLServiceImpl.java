@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by LENOVO on 2017/9/28.
  */
-@Service("systemddlService")
+ @Service("systemddlService")
   public class SystemDDLServiceImpl implements SystemDDLService {
     @Autowired
     SystemddlMapper systemddlMapper;
@@ -63,4 +64,24 @@ import java.util.List;
         return systemddlMapper.getKeyword();
 
     }
+
+    @Override
+    public void add(Systemddl systemddl) {
+        List<Systemddl> systemddlList = getListByKeyWorld(systemddl.getKeyword());
+        systemddl.setDdlcode(systemddlList.size()+1);
+        systemddlMapper.insertSelective(systemddl);
+    }
+
+    @Override
+    public void updates(Systemddl systemddl) {
+        systemddlMapper.updateByPrimaryKeySelective(systemddl);
+    }
+
+    @Override
+    public void deletion(String uuid) {
+//        有主键的时候这样写，没主键的时候创造条件
+        systemddlMapper.deleteByPrimaryKey(uuid);
+    }
+
+
 }

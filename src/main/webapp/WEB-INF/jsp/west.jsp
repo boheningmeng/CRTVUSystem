@@ -65,7 +65,6 @@
                 <li data-options="attributes:{'url':'/stu_manage'}">学生管理</li>
                 <li>课程管理</li>
                 <li>成绩管理</li>
-                <li>通知管理</li>
                 <li>选课管理</li>
             </ul>
         </li>
@@ -77,7 +76,7 @@
                 <li data-options="attributes:{'url':'/sys_directory'}">字典管理</li>
                 <li>学生信息导入</li>
                 <li>老师信息导入</li>
-                <li>上传文件</li>
+                <li data-options="attributes:{'url':'/sys_notice'}">通知管理</li>
             </ul>
         </li></shiro:hasRole>
         <%--<li>

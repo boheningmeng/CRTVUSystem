@@ -15,6 +15,8 @@ public class Notice {
 
     private Date time;
 
+    private String annex;
+
     public String getUuid() {
         return uuid;
     }
@@ -61,5 +63,13 @@ public class Notice {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public String getAnnex() {
+        return annex;
+    }
+
+    public void setAnnex(String annex) {
+        this.annex = annex == null ? null : annex.trim();
     }
 }
