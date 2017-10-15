@@ -6,6 +6,7 @@ import cn.lh.util.ContantKey;
 import cn.lh.vo.Vouser;
 import com.alibaba.fastjson.JSON;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -44,8 +45,6 @@ public class UserController {
             return "/index";
         }catch (UnknownAccountException uae){
             System.out.println("用户名错误");
-        }catch(Exception e){
-            e.printStackTrace();
         }
         return "/login";
     }
