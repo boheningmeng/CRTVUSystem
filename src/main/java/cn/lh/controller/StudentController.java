@@ -33,11 +33,23 @@ public class StudentController {
 
         System.out.println(page);
         DataGrid dateGrid = new DataGrid();
-
         dateGrid.setRows(studentService.getList(page));
         dateGrid.setTotal(studentService.getTotal());
         return JSON.toJSONString(dateGrid);
     }
+
+    @RequestMapping(value = "/lists/{grade}")
+    @ResponseBody
+    public String getLists(@PathVariable int grade, Page page)  throws Exception {
+
+
+        DataGrid dateGrid = new DataGrid();
+        dateGrid.setRows(studentService.getListByYear(grade,page));
+        dateGrid.setTotal(studentService.getTotal());
+        return JSON.toJSONString(dateGrid);
+    }
+
+
 
     @RequestMapping(value = "/addition")
     @ResponseBody

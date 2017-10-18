@@ -25,7 +25,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service("studentServcie")
-   public class StudentServiceImpl implements StudentService {
+public class StudentServiceImpl implements StudentService {
     public long total;
 
     @Autowired
@@ -67,6 +67,7 @@ ctrl+shift+/添加注释，则ctrl+shift+/取消注释*/
         this.total = pageInfo.getTotal();
 //        vo化
         List<VoStudent> voStudentList = new ArrayList<>();
+
 //        System.out.println(studentList);
         for(Student student:
                 studentList){
@@ -108,6 +109,48 @@ ctrl+shift+/添加注释，则ctrl+shift+/取消注释*/
         StudentExample.Criteria criteria = studentExample.createCriteria();
         criteria.andNumberEqualTo(id);
         studentMapper.deleteByExample(studentExample);
+    }
+
+    @Override
+    public List<VoStudent> getListByYear(int grade, Page page) {
+        //      设置分页
+        PageHelper.startPage(page.getPage(),page.getRows());
+//        创建查询规则
+        StudentExample studentExample = new StudentExample();
+        StudentExample.Criteria criteria = studentExample.createCriteria();
+        criteria.andGradeEqualTo(grade);
+//        查询
+        List<Student> studentList = studentMapper.selectByExample(studentExample);
+//        获取查询信息
+        PageInfo<Student> pageInfo = new PageInfo<>(studentList);
+        this.total = pageInfo.getTotal();
+//        vo化
+        List<VoStudent> voStudentList = new ArrayList<>();
+
+
+        for(Student student:
+                studentList){
+
+            VoStudent voStudent = new VoStudent();
+            voStudent.setName(student.getName());
+            voStudent.setSex(student.getSex());
+            voStudent.setNumber(student.getNumber());
+            voStudent.setEmail(student.getEmail());
+            voStudent.setVoGrade(systemDDLService.getDDLNameByDDLCode("grade",student.getGrade()));
+            voStudent.setVoClazz(clazzService.getClazz(student.getClazzid()));
+            voStudent.setVoMajor(systemDDLService.getDDLNameByDDLCode("major",student.getMajor()));
+            voStudent.setVoIsChoose(systemDDLService.getIsChoose(student.getIschoose()));
+//           把voStudent加入到list中
+            voStudentList.add(voStudent);
+        }
+
+        return voStudentList;
+
+    }
+
+    @Override
+    public Student getStudent(int id) {
+        return studentMapper.selectByPrimaryKey(id);
     }
 
 

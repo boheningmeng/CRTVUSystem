@@ -1,11 +1,11 @@
-<%@ taglib prefix="valueField" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: LENOVO
-  Date: 2017/10/9
-  Time: 9:56
+  Date: 2017/10/18
+  Time: 19:30
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="valueField" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,23 +20,23 @@
 <body>
 
 <div align="center">
-    <table id="dg" title="学生列表" class="easyui-datagrid" style="width: 100%;height:auto"
+    <table id="dg" title="成绩列表" class="easyui-datagrid" style="width: 100%;height:auto"
            toolbar="#toolbar"
            fitColumns="true" singleSelect="true" pagination="true"
            data-options="rownumbers:true,
-            url:'/student/list',
+            url:'/score/list',
             method:'get',
             pageSize:15,
             pageList:[5,10,15,20,25]">
         <thead>
         <tr>
-            <th field="voMajor" width="50">专业</th>
-            <th field="voClazz" width="50">班级</th>
+            <th field="clazz" width="50">班级</th>
             <th field="number" width="50">学号</th>
             <th field="name" width="50">姓名</th>
-            <th field="voGrade" width="50">年级</th>
-            <th field="sex" width="50">性别</th>
-            <th field="voIsChoose" width="50">是否选课</th>
+            <th field="courseName" width="50">学科</th>
+            <th field="score" width="50">成绩</th>
+            <th field="courseCredit" width="50">学分</th>
+            <th field="courseLearnTime" width="50">学时</th>
 
         </tr>
         </thead>
@@ -65,7 +65,7 @@
             <label>年级&nbsp;&nbsp;&nbsp;</label><div>&nbsp;</div>
             <input name="grade"
                    class="easyui-combobox"
-                   <%--textField和valueField看到的表示出来的值（界面上），和内里的值--%>
+            <%--textField和valueField看到的表示出来的值（界面上），和内里的值--%>
                    data-options="
                            valueField:'ddlcode',
                            textField:'ddlname',
@@ -133,8 +133,8 @@
         </div>
         <br/>
         <%--<div class="fitem">--%>
-            <%--<label>特长&nbsp;&nbsp;&nbsp;</label>--%>
-            <%--<textarea name="strongpoint" class="textareaComment" placeholder="200字以内"></textarea>--%>
+        <%--<label>特长&nbsp;&nbsp;&nbsp;</label>--%>
+        <%--<textarea name="strongpoint" class="textareaComment" placeholder="200字以内"></textarea>--%>
         <%--</div>--%>
     </form>
 </div>

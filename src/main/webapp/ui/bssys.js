@@ -5,7 +5,19 @@ $(function () {
             $("#dg").datagrid({
                 url:'/systemddl/list/'+$("#searchInput").combobox("getValue")
             });
-            // $("#dg").datagrid("load");
+
+        }
+    });
+});
+//
+// 学生管理的按类型查询
+$(function () {
+    $('#studentInput').combobox({
+        onChange: function(){
+            $("#dg").datagrid({
+                url:'/student/lists/'+$("#studentInput").combobox("getValue")
+            });
+
         }
     });
 });

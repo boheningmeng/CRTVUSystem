@@ -25,5 +25,8 @@ public interface StudentService {
 
     public void delete(String id);
 
+    public List<VoStudent>  getListByYear(int grade,Page page);
+
+    public Student getStudent(int id);
 
 }

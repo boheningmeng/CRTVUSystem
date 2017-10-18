@@ -64,7 +64,7 @@
                 <li>教师管理</li>
                 <li data-options="attributes:{'url':'/stu_manage'}">学生管理</li>
                 <li>课程管理</li>
-                <li>成绩管理</li>
+                <li data-options="attributes:{'url':'/score_manage'}">成绩管理</li>
                 <li>选课管理</li>
             </ul>
         </li>
