@@ -67,9 +67,9 @@
                         </thead>
                     </table>
                 </div>
-                <span style="height: auto;margin-right: 20px;">
+                <%--<span style="height: auto;margin-right: 20px;">
                     <div class="easyui-calendar" style="width:250px;height:250px;"></div>
-                </span>
+                </span>--%>
             </div>
         </div>
     </div>

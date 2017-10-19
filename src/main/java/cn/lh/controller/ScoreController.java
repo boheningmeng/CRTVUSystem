@@ -3,6 +3,7 @@ package cn.lh.controller;
 import cn.lh.pojo.DataGrid;
 import cn.lh.pojo.Page;
 import cn.lh.service.ScoreService;
+import cn.lh.vo.VoScore;
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,29 @@ public class ScoreController {
     dateGrid.setTotal(scoreService.getTotal());
     return JSON.toJSONString(dateGrid);
   }
+
+  @RequestMapping("/addition")
+  @ResponseBody
+  public String add(VoScore voScore){
+    try{
+       scoreService.add(voScore);
+      return JSON.toJSONString("操作成功");
+    }catch (Exception e){
+      return JSON.toJSONString("操作失败");
+    }
+  }
+
+  @RequestMapping("/updates")
+  @ResponseBody
+  public String update(VoScore voScore){
+    try{
+      scoreService.updates(voScore);
+      return  JSON.toJSONString("操作成功");
+    }catch (Exception e){
+      return JSON.toJSONString("操作失败");
+    }
+  }
+
 
 
 }

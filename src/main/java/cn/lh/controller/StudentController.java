@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 /**
  * Created with IntelliJ IDEA.
@@ -89,6 +91,17 @@ public class StudentController {
             return JSON.toJSONString("操作成功");
         }catch (Exception e){
             return JSON.toJSONString("操作失败");
+        }
+    }
+    @ResponseBody
+    @RequestMapping(value = "/import")
+    public String importByExcel (@RequestParam("file")CommonsMultipartFile file) {
+        try {
+            studentService.importToMysql(file);
+            return JSON.toJSONString("successful");
+        }catch (Exception e){
+            e.printStackTrace();
+            return JSON.toJSONString("failed");
         }
     }
 }

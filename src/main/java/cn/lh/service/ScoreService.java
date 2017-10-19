@@ -15,5 +15,10 @@ import java.util.List;
 public interface ScoreService {
 
     public long getTotal();
+
     public List<VoScore> getList(Page page);
+
+    public void add(VoScore voScore);
+
+    public void updates(VoScore voScore);
 }

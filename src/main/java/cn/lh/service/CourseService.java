@@ -2,6 +2,8 @@ package cn.lh.service;
 
 import cn.lh.pojo.Course;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: 刘莉慧
@@ -12,4 +14,6 @@ import cn.lh.pojo.Course;
 public interface CourseService {
 
     public Course getCourse(int id);
+
+    public List<Course> getNameList();
 }

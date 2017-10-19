@@ -11,9 +11,16 @@ import cn.lh.service.SystemDDLService;
 import cn.lh.vo.VoStudent;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -153,5 +160,84 @@ ctrl+shift+/添加注释，则ctrl+shift+/取消注释*/
         return studentMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public int getId(String number) {
+        StudentExample studentExample = new StudentExample();
+        StudentExample.Criteria criteria = studentExample.createCriteria();
+        criteria.andNumberEqualTo(number);
+        List<Student> studentList = studentMapper.selectByExample(studentExample);
+        if(studentList.size()!= 0 ){
+            return studentList.get(0).getId();
+        }else{
+            return 0;
+        }
+    }
+    @Override
+    public void importToMysql(CommonsMultipartFile file) throws IOException {
 
+        List<Student> list = readXls(file.getInputStream());
+        for(int i=0;i< list.size();i++){
+            Student student = list.get(i);
+            studentMapper.insertSelective(student);
+        }
+    }
+
+    public List<Student> readXls(InputStream inputStream) throws IOException {
+        HSSFWorkbook hssfWorkbook = new HSSFWorkbook(inputStream);
+       Student student;
+        List<Student> list = new ArrayList<>();
+
+        for (int numSheet = 0; numSheet < hssfWorkbook.getNumberOfSheets(); numSheet++) {
+            HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(numSheet);
+            if (hssfSheet == null) {
+                continue;
+            }
+            for (int rowNum = 1; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
+                HSSFRow hssfRow = hssfSheet.getRow(rowNum);
+                if (hssfRow != null) {
+                    student = new Student();
+//  学号 姓名 性别 年级 班级  专业 入学时间 邮件 手机号
+                    HSSFCell number = hssfRow.getCell(0);
+                    HSSFCell name = hssfRow.getCell(1);
+                    HSSFCell sex = hssfRow.getCell(2);
+                    HSSFCell grade = hssfRow.getCell(3);
+                    HSSFCell clazzid = hssfRow.getCell(4);
+                    HSSFCell major= hssfRow.getCell(5);
+                    HSSFCell Entime = hssfRow.getCell(6);
+                    HSSFCell email = hssfRow.getCell(7);
+                    HSSFCell phone = hssfRow.getCell(8);
+
+                    student.setNumber(getValue(number));
+                    student.setName(getValue(name));
+                    student.setSex(getValue(sex));
+                    student.setGrade((int)Double.parseDouble(getValue(name)));
+                    student.setPassword(getValue(number));
+                    student.setIschoose(0);
+                    student.setClazzid((int)Double.parseDouble(getValue(grade)));
+                    student.setMajor((int)Double.parseDouble(getValue(major)));
+                    student.setEntime((int)Double.parseDouble(getValue(Entime)));
+                    student.setEmail(getValue(email));
+                    student.setPhone(getValue(phone));
+                    list.add(student);
+
+                }
+            }
+        }
+        return list;
+    }
+
+    public String getValue(HSSFCell hssfCell) {
+        if (hssfCell.getCellType() == hssfCell.CELL_TYPE_BOOLEAN) {
+
+            return String.valueOf(hssfCell.getBooleanCellValue());
+        } else if (hssfCell.getCellType() == hssfCell.CELL_TYPE_NUMERIC) {
+
+            return String.valueOf(hssfCell.getNumericCellValue());
+        } else {
+
+            return String.valueOf(hssfCell.getStringCellValue());
+        }
+    }
 }
+
+

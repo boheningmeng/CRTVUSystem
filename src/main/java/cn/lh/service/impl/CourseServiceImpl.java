@@ -2,9 +2,12 @@ package cn.lh.service.impl;
 
 import cn.lh.mapper.CourseMapper;
 import cn.lh.pojo.Course;
+import cn.lh.pojo.CourseExample;
 import cn.lh.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +17,7 @@ import org.springframework.stereotype.Service;
  * To change this template use File | Settings | File Templates.
  */
 @Service("courseService")
-public class CourseServiceImpl implements CourseService{
+ public class CourseServiceImpl implements CourseService{
 
     @Autowired
     CourseMapper courseMapper;
@@ -22,5 +25,11 @@ public class CourseServiceImpl implements CourseService{
     @Override
     public Course getCourse(int id) {
         return courseMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<Course> getNameList() {
+        CourseExample courseExample = new CourseExample();
+        return courseMapper.selectByExample(courseExample);
     }
 }

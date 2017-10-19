@@ -4,7 +4,9 @@ import cn.lh.pojo.Page;
 import cn.lh.pojo.Student;
 import cn.lh.pojo.Systemddl;
 import cn.lh.vo.VoStudent;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -28,5 +30,9 @@ public interface StudentService {
     public List<VoStudent>  getListByYear(int grade,Page page);
 
     public Student getStudent(int id);
+
+    public int getId(String number);
+
+    public void importToMysql(CommonsMultipartFile file)throws IOException;
 
 }

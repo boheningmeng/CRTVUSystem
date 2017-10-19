@@ -23,7 +23,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service("scoreService")
-public class ScoreServiceImpl implements ScoreService{
+ public class ScoreServiceImpl implements ScoreService{
 
     @Autowired
     ScoreMapper scoreMapper;
@@ -74,4 +74,22 @@ public class ScoreServiceImpl implements ScoreService{
         }
         return voScoreList;
     }
+
+    @Override
+    public void add(VoScore voScore) {
+        voScore.setSubmitstatus(1);
+        voScore.setSid(studentService.getId(voScore.getNumber()));
+//        疑问  为什么 vouser也可以用？
+
+        scoreMapper.insertSelective(voScore);
+
+    }
+
+    @Override
+    public void updates(VoScore voScore) {
+        voScore.setSid(studentService.getId(voScore.getNumber()));
+        ScoreExample scoreExample = new ScoreExample();
+        scoreMapper.updateByExampleSelective(voScore,scoreExample);
+    }
+
 }

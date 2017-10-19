@@ -373,7 +373,51 @@ function saveStu(){
         url:url,
         success: function (res) {
             alert(res);
-            $("#stuDialog").dialog("close");
+            $("#scoreDialog").dialog("close");
+            $("#dg").datagrid("reload");
+        }
+    })
+}
+//成绩管理
+function newScore(){
+    $("#fm").form("clear");
+    $("#scoreDialog").dialog("open").dialog("setTitle","成绩管理--新建");
+    url = "/score/addition";
+}
+function editScore(){
+    var row = $("#dg").datagrid("getSelected");
+    if (row){
+        $("#scoreDialog").dialog("open").dialog("setTitle","成绩管理--编辑");
+        $("#fm").form("clear");
+        $("#fm").form("load",row);
+
+        url = "/student/updates";
+    }
+}
+function destroyScore(){
+    var row = $("#dg").datagrid("getSelected");
+    var number = row.number;
+    if (row){
+        $.messager.confirm("Confirm","确定要删除这条记录吗",function (r) {
+            if (r){
+                $("#dfm").form("submit",{
+                    url:"/student/deletion/"+number,
+                    success: function (res) {
+                        alert(res);
+                        $("#scoreDialog").dialog("close");
+                        $("#dg").datagrid("reload")
+                    }
+                })
+            }
+        })
+    }
+}
+function saveScore(){
+    $("#fm").form("submit",{
+        url:url,
+        success: function (res) {
+            alert(res);
+            $("#scoreDialog").dialog("close");
             $("#dg").datagrid("reload");
         }
     })

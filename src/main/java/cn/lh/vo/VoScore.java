@@ -65,4 +65,16 @@ public class VoScore  extends Score {
     public void setCourseLearnTime(int courseLearnTime) {
         this.courseLearnTime = courseLearnTime;
     }
+
+    @Override
+    public String toString() {
+        return "VoScore{" +
+                "clazz='" + clazz + '\'' +
+                ", name='" + name + '\'' +
+                ", number='" + number + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", courseCredit=" + courseCredit +
+                ", courseLearnTime=" + courseLearnTime +
+                '}';
+    }
 }
